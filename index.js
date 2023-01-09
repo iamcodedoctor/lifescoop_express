@@ -1,6 +1,6 @@
-import app from "./loaders/app.js"
-import dbConnector from "./loaders/dbConnector.js";
-import { baseConfig } from './configs/baseConfig.js'
+import app from './loaders/app.js';
+import dbConnector from './loaders/dbConnector.js';
+import { baseConfig } from './configs/baseConfig.js';
 
 const port = baseConfig.port || 6010;
 

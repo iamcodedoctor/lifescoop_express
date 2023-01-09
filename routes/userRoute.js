@@ -1,15 +1,16 @@
-import express from "express"
-import UserController from "../controllers/userController.js";
+import express from 'express';
+import UserController from '../controllers/userController.js';
+import { verifyToken } from '../middlewares/verifyToken.js';
+
 const userController = new UserController();
-import {verifyToken} from "../middlewares/verifyToken.js";
 
 const router = express.Router();
 
 // Read
-router.get("/info", verifyToken, userController.getUser);
-router.get("/friends", verifyToken, userController.getUserFriends);
+router.get('/info', verifyToken, userController.getUser);
+router.get('/friends', verifyToken, userController.getUserFriends);
 
 // Update
-router.patch("/:friendId", verifyToken, userController.addRemoveFriends);
+router.patch('/:friendId', verifyToken, userController.addRemoveFriends);
 
-export default router
+export default router;

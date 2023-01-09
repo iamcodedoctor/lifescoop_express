@@ -1,7 +1,9 @@
 import express from 'express';
-const router = express.Router();
 import { verifyToken } from '../middlewares/verifyToken.js';
 import PostController from '../controllers/postController.js';
+
+const router = express.Router();
+
 const postController = new PostController();
 
 // Read

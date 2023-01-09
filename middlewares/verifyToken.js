@@ -17,7 +17,7 @@ const verifyToken = (req, res, next) => {
         const verified = jwt.verify(token, baseConfig.jwtSecret);
 
         if (!verified) {
-            return createError(403, "Invalid Token");
+            return createError(403, 'Invalid Token');
         }
 
         req.user = verified;
@@ -27,4 +27,4 @@ const verifyToken = (req, res, next) => {
     }
 };
 
-export {verifyToken}
+export { verifyToken };

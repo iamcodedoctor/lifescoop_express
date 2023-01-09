@@ -5,4 +5,4 @@ function createError(statusCode, message) {
     return err;
 }
 
-export default createError
+export default createError;

@@ -8,7 +8,7 @@ class UserController {
             const response = await userService.getUser(id);
             return res.status(200).json({
                 success: true,
-                data: response
+                data: response,
             });
         } catch (error) {
             return next(error);
@@ -21,8 +21,8 @@ class UserController {
             const response = await userService.getUserFriends(id);
             return res.status(200).json({
                 success: true,
-                data: response
-            })
+                data: response,
+            });
         } catch (error) {
             return next(error);
         }
@@ -30,13 +30,13 @@ class UserController {
 
     addRemoveFriends = async (req, res, next) => {
         try {
-            const {friendId} = req.params;
+            const { friendId } = req.params;
             const id = req.user.id;
             const response = await userService.addRemoveFriends(id, friendId);
             return res.status(200).json({
                 success: true,
-                data: response
-            })
+                data: response,
+            });
         } catch (error) {
             return next(error);
         }
