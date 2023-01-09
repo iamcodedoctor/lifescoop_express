@@ -10,6 +10,7 @@ import multer from 'multer';
 import errorHandler from '../utils/middlewares/errorHandler.js';
 import AuthController from '../controllers/authController.js';
 import authRouter from '../routes/authRoute.js';
+import userRouter from '../routes/userRoute.js';
 
 const authController = new AuthController();
 
@@ -47,6 +48,7 @@ app.post('/auth/register', upload.single('pitcure'), authController.register);
 
 // Routes
 app.use('/auth', authRouter);
+app.use('/user', userRouter);
 
 // Error handler middleware
 app.use(errorHandler);
