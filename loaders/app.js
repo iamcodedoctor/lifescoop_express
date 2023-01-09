@@ -11,8 +11,11 @@ import errorHandler from '../utils/middlewares/errorHandler.js';
 import AuthController from '../controllers/authController.js';
 import authRouter from '../routes/authRoute.js';
 import userRouter from '../routes/userRoute.js';
-
+import {verifyToken} from "../middlewares/verifyToken.js";
+import PostController from "../controllers/postController.js";
+const postController = new PostController()
 const authController = new AuthController();
+import postRouter from "../routes/postRoute.js"
 
 // Configuratons
 
@@ -45,10 +48,12 @@ const upload = multer({ storage });
 
 // Routes with files
 app.post('/auth/register', upload.single('pitcure'), authController.register);
+app.post('/post', verifyToken, upload.single('picture'), postController.createPost);
 
 // Routes
 app.use('/auth', authRouter);
 app.use('/user', userRouter);
+app.use("/post", postRouter);
 
 // Error handler middleware
 app.use(errorHandler);
